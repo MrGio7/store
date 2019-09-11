@@ -1,5 +1,7 @@
-import React from 'react';
-import './assets/SCSS/App.scss';
+import React from "react";
+import "./assets/SCSS/App.scss";
+
+import { Footer } from "./Components";
 
 function App() {
   return (
@@ -12,28 +14,7 @@ function App() {
         <h1>body</h1>
       </div>
 
-      <div className="footer">
-        <div className='home'>
-          <h2>Home</h2>
-        </div>
-
-        <div className="categories">
-          <h2>Categ.</h2>
-        </div>
-
-        <div className="delivery">
-          <h2>deliv</h2>
-        </div>
-
-        
-        <div className="search">
-          <h2>Search</h2>
-        </div>
-
-        <div className="me">
-          <h2>Me</h2>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
