@@ -1,19 +1,14 @@
 import React from "react";
+import { Route } from "react-router-dom";
+
 import "./assets/SCSS/App.scss";
 
-import { Footer } from "./Components";
+import { Footer, Home } from "./Components";
 
 function App() {
   return (
     <div className="App">
-      <div className="header">
-        <h1>header</h1>
-      </div>
-
-      <div className="body">
-        <h1>body</h1>
-      </div>
-
+      <Route path='/' component={Home} />
       <Footer />
     </div>
   );
