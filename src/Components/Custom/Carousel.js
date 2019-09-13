@@ -34,7 +34,7 @@ const Carousel = props => {
 
       return (
         <div className={cls} key={index}>
-          <img src={each} />
+          <img src={each} alt="slideshow" />
         </div>
       );
     });
@@ -44,12 +44,12 @@ const Carousel = props => {
     <div className="slideshow">
       {slideShow()}
       <div className="btns">
-        <a className="prev" onClick={minusSlide}>
+        <div className="prev" onClick={minusSlide}>
           &#10094;
-        </a>
-        <a className="next" onClick={plusSlide}>
+        </div>
+        <div className="next" onClick={plusSlide}>
           &#10095;
-        </a>
+        </div>
       </div>
     </div>
   );
