@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import '../../assets/SCSS/Carousel.scss';
+import "../../assets/SCSS/Carousel.scss";
 
 const Carousel = props => {
   const [images, setImages] = useState([
@@ -12,9 +12,16 @@ const Carousel = props => {
 
   return (
     <div className="slideshow">
-      {images.map((each, index) => {
-        return <img src={each} />;
-      })}
+      <div className="images">
+        {images.map((each, index) => {
+          return <img src={each} />;
+        })}
+
+        <div className="btns">
+          <a className="prev">&#10094;</a>
+          <a className="next">&#10095;</a>
+        </div>
+      </div>
     </div>
   );
 };
