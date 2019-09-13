@@ -7,20 +7,49 @@ const Carousel = props => {
     "https://picsum.photos/id/757/600/300",
     "https://picsum.photos/id/756/600/300",
     "https://picsum.photos/id/755/600/300",
-    "https://picsum.photos/id/754/600/300"
+    "https://picsum.photos/id/758/600/300"
   ]);
+
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const plusSlide = () => {
+    if (slideIndex !== images.length - 1) {
+      setSlideIndex(slideIndex + 1);
+    } else {
+      setSlideIndex(0);
+    }
+  };
+
+  const minusSlide = () => {
+    if (slideIndex !== 0) {
+      setSlideIndex(slideIndex - 1);
+    } else {
+      setSlideIndex(images.length - 1);
+    }
+  };
+
+  let slideShow = n => {
+    return images.map((each, index) => {
+      let cls = index === slideIndex ? "slide" : "none";
+
+      return (
+        <div className={cls} key={index}>
+          <img src={each} />
+        </div>
+      );
+    });
+  };
 
   return (
     <div className="slideshow">
-      <div className="images">
-        {images.map((each, index) => {
-          return <img src={each} />;
-        })}
-
-        <div className="btns">
-          <a className="prev">&#10094;</a>
-          <a className="next">&#10095;</a>
-        </div>
+      {slideShow()}
+      <div className="btns">
+        <a className="prev" onClick={minusSlide}>
+          &#10094;
+        </a>
+        <a className="next" onClick={plusSlide}>
+          &#10095;
+        </a>
       </div>
     </div>
   );
