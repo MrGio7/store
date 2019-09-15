@@ -63,16 +63,21 @@ const Carousel = props => {
 
     el.holder[0].style = `transform: translate3d(${global.touchmovex - global.touchstartx}px,0,0)`;
 
-    console.log(ev.touches[0].pageX)
   };
 
   const tchEnd = ev => {
-    let absMove = Math.abs(global.index * el.slideWidth - global.movex);
-    console.log("global.movex", global.movex);
+    const half = el.offsetWidth;
+    console.log(global.touchstartx, el.slideWidth/2, global.touchmovex, el.slideWidth/2)
+    if(global.touchstartx > el.slideWidth / 2 && global.touchmovex < el.slideWidth / 2){
+      setGlobal({
+        ...global,
+        index: ++global.index
+      })
 
-    let calc = global.index * el.slideWidth;
+      console.log(global.index)
+    }
 
-    el.holder[0].style = `transform: translate3d(${calc}px,0,0)`;
+    el.holder[0].style = `transform: translate3d(0px,0,0)`;
   };
 
   return (
