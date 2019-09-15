@@ -65,13 +65,13 @@
 
 .slideshow{
   overflow: hidden;
+  width: 100%;
 
   .holder{
-    overflow: hidden;
     display: flex;
   }
   
   img{
-    width: 100%;
+    width: 411px;
   }
 }

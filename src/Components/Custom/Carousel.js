@@ -51,8 +51,6 @@ const Carousel = props => {
       touchstartx: ev.touches[0].pageX,
       holderWidth: el.holder[0].clientWidth
     });
-
-    console.log(global.holderWidth)
   };
 
   const tchMove = ev => {
@@ -66,18 +64,14 @@ const Carousel = props => {
   };
 
   const tchEnd = ev => {
-    const half = el.offsetWidth;
-    console.log(global.touchstartx, el.slideWidth/2, global.touchmovex, el.slideWidth/2)
     if(global.touchstartx > el.slideWidth / 2 && global.touchmovex < el.slideWidth / 2){
       setGlobal({
         ...global,
         index: ++global.index
       })
-
-      console.log(global.index)
     }
 
-    el.holder[0].style = `transform: translate3d(0px,0,0)`;
+    el.holder[0].style = `transform: translate3d(${-global.index*el.slideWidth}px,0,0)`;
   };
 
   return (
@@ -90,7 +84,7 @@ const Carousel = props => {
       >
         {images.map((each, index) => {
           return(
-            <img src={each} key={index} alt="slideshow" />
+            <img src={each} key={index} alt="slideshow" className="imgSlide" />
           )
         })}
         {/* <div className="btns">
