@@ -17,7 +17,7 @@ const Carousel = props => {
     touchstartx: undefined,
     touchmovex: undefined,
     movex: undefined,
-    index: 0,
+    index: 0
   });
 
   useEffect(() => {
@@ -49,29 +49,46 @@ const Carousel = props => {
     setGlobal({
       ...global,
       touchstartx: ev.touches[0].pageX,
-      holderWidth: el.holder[0].clientWidth
+      holderWidth: el.holder[0].clientWidth,
+      touchmovex: ev.touches[0].pageX
     });
   };
 
   const tchMove = ev => {
     setGlobal({
       ...global,
-      touchmovex: ev.touches[0].pageX,
+      touchmovex: ev.touches[0].pageX
     });
 
-    el.holder[0].style = `transform: translate3d(${global.touchmovex - global.touchstartx}px,0,0)`;
-
+    el.holder[0].style = `transform: translate3d(${-global.index * el.slideWidth + (global.touchmovex -
+      global.touchstartx)}px,0,0)`;
   };
 
   const tchEnd = ev => {
-    if(global.touchstartx > el.slideWidth / 2 && global.touchmovex < el.slideWidth / 2){
+    if (
+      global.touchstartx > el.slideWidth / 2 &&
+      global.touchmovex < el.slideWidth / 2 &&
+      global.index !== images.length - 1
+    ) {
       setGlobal({
         ...global,
         index: ++global.index
-      })
+      });
     }
 
-    el.holder[0].style = `transform: translate3d(${-global.index*el.slideWidth}px,0,0)`;
+    if (
+      global.touchstartx < el.slideWidth / 2 &&
+      global.touchmovex > el.slideWidth / 2 &&
+      global.index !== 0
+    ) {
+      setGlobal({
+        ...global,
+        index: --global.index
+      });
+    }
+
+    el.holder[0].style = `transform: translate3d(${-global.index * el.slideWidth}px,0,0); 
+    transition: transform 0.3s ease-out;`;
   };
 
   return (
@@ -83,9 +100,9 @@ const Carousel = props => {
         onTouchEnd={tchEnd}
       >
         {images.map((each, index) => {
-          return(
+          return (
             <img src={each} key={index} alt="slideshow" className="imgSlide" />
-          )
+          );
         })}
         {/* <div className="btns">
           <div className="prev" onClick={minusSlide}>
@@ -96,6 +113,15 @@ const Carousel = props => {
           </div>
         </div> */}
       </div>
+
+      <div className="dotsContainer">
+          {images.map((each, index) => {
+            const cls = index === global.index ? "dot active" : "dot";
+
+            return(
+            <span className={cls} key={index}  />
+          )})}
+        </div>
     </div>
   );
 };
