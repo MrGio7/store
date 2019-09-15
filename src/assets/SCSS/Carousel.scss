@@ -72,6 +72,10 @@
   }
   
   img{
-    width: 411px;
+    width: 100%;
   }
 }
+
+*, *::before, *::after {
+  animation-play-state: paused !important;
+} 
