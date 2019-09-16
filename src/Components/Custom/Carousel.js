@@ -3,12 +3,6 @@ import React, { useState, useEffect } from "react";
 import "../../assets/SCSS/Carousel.scss";
 
 const Carousel = props => {
-  const [images, setImages] = useState([
-    "https://picsum.photos/id/757/600/300",
-    "https://picsum.photos/id/756/600/300",
-    "https://picsum.photos/id/755/600/300",
-    "https://picsum.photos/id/758/600/300"
-  ]);
 
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -68,7 +62,7 @@ const Carousel = props => {
     if (
       global.touchstartx > el.slideWidth / 2 &&
       global.touchmovex < el.slideWidth / 2 &&
-      global.index !== images.length - 1
+      global.index !== props.images.length - 1
     ) {
       setGlobal({
         ...global,
@@ -99,7 +93,7 @@ const Carousel = props => {
         onTouchMove={tchMove}
         onTouchEnd={tchEnd}
       >
-        {images.map((each, index) => {
+        {props.images.map((each, index) => {
           return (
             <img src={each} key={index} alt="slideshow" className="imgSlide" />
           );
@@ -115,7 +109,7 @@ const Carousel = props => {
       </div>
 
       <div className="dotsContainer">
-          {images.map((each, index) => {
+          {props.images.map((each, index) => {
             const cls = index === global.index ? "dot active" : "dot";
 
             return(
