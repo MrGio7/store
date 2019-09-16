@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import "../../assets/SCSS/Carousel.scss";
 
 const Carousel = props => {
-
   const [slideIndex, setSlideIndex] = useState(0);
 
   const [el, setEl] = useState({});
@@ -13,15 +12,6 @@ const Carousel = props => {
     movex: undefined,
     index: 0
   });
-
-  useEffect(() => {
-    setEl({
-      slider: document.getElementsByClassName("slideshow"),
-      holder: document.getElementsByClassName("holder"),
-      imgSlide: document.getElementsByClassName("imgSlide"),
-      slideWidth: document.getElementsByClassName("slideshow")[0].offsetWidth
-    });
-  }, []);
 
   // const plusSlide = () => {
   //   if (slideIndex !== images.length - 1) {
@@ -40,10 +30,15 @@ const Carousel = props => {
   // };
 
   const tchStart = ev => {
+    setEl({
+      holder: ev.currentTarget,
+      imgSlide: ev.target
+    });
+
     setGlobal({
       ...global,
       touchstartx: ev.touches[0].pageX,
-      holderWidth: el.holder[0].clientWidth,
+      holderWidth: ev.currentTarget.offsetWidth,
       touchmovex: ev.touches[0].pageX
     });
   };
@@ -54,14 +49,14 @@ const Carousel = props => {
       touchmovex: ev.touches[0].pageX
     });
 
-    el.holder[0].style = `transform: translate3d(${-global.index * el.slideWidth + (global.touchmovex -
-      global.touchstartx)}px,0,0)`;
+    el.holder.style = `transform: translate3d(${-global.index * global.holderWidth +
+      (global.touchmovex - global.touchstartx)}px,0,0)`;
   };
 
   const tchEnd = ev => {
     if (
-      global.touchstartx > el.slideWidth / 2 &&
-      global.touchmovex < el.slideWidth / 2 &&
+      global.touchstartx > global.holderWidth / 2 &&
+      global.touchmovex < global.holderWidth / 2 &&
       global.index !== props.images.length - 1
     ) {
       setGlobal({
@@ -71,8 +66,8 @@ const Carousel = props => {
     }
 
     if (
-      global.touchstartx < el.slideWidth / 2 &&
-      global.touchmovex > el.slideWidth / 2 &&
+      global.touchstartx < global.holderWidth / 2 &&
+      global.touchmovex > global.holderWidth / 2 &&
       global.index !== 0
     ) {
       setGlobal({
@@ -81,7 +76,8 @@ const Carousel = props => {
       });
     }
 
-    el.holder[0].style = `transform: translate3d(${-global.index * el.slideWidth}px,0,0); 
+    el.holder.style = `transform: translate3d(${-global.index *
+      global.holderWidth}px,0,0); 
     transition: transform 0.3s ease-out;`;
   };
 
@@ -109,13 +105,12 @@ const Carousel = props => {
       </div>
 
       <div className="dotsContainer">
-          {props.images.map((each, index) => {
-            const cls = index === global.index ? "dot active" : "dot";
+        {props.images.map((each, index) => {
+          const cls = index === global.index ? "dot active" : "dot";
 
-            return(
-            <span className={cls} key={index}  />
-          )})}
-        </div>
+          return <span className={cls} key={index} />;
+        })}
+      </div>
     </div>
   );
 };

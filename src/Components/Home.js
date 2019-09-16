@@ -10,9 +10,25 @@ const Home = () => {
     "https://picsum.photos/id/758/600/300"
   ]);
 
+  const [catImg, setCatImg] = useState([
+    "https://picsum.photos/id/1/600/300",
+    "https://picsum.photos/id/2/600/300",
+    "https://picsum.photos/id/3/600/300", 
+    "https://picsum.photos/id/4/600/300"
+  ])
+
   return (
     <div className="home">
-      <Carousel images={images} />
+      <div className='headerCarousel'>
+        <Carousel images={images} />
+      </div>
+
+      <h1>Categories</h1>
+
+    <div className="categoryCarousel">
+      <Carousel images={catImg} />
+    </div>
+
     </div>
   );
 };
