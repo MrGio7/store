@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "../../assets/SCSS/Carousel.scss";
 
@@ -49,8 +49,8 @@ const Carousel = props => {
       touchmovex: ev.touches[0].pageX
     });
 
-    el.holder.style = `transform: translate3d(${-global.index * global.holderWidth +
-      (global.touchmovex - global.touchstartx)}px,0,0)`;
+    el.holder.style = `transform: translateX(${-global.index * global.holderWidth +
+      (global.touchmovex - global.touchstartx)}px)`;
   };
 
   const tchEnd = ev => {
@@ -76,9 +76,8 @@ const Carousel = props => {
       });
     }
 
-    el.holder.style = `transform: translate3d(${-global.index *
-      global.holderWidth}px,0,0); 
-    transition: transform 0.3s ease-out;`;
+    el.holder.style = `transform: translateX(${-global.index *
+      global.holderWidth}px);`;
   };
 
   return (

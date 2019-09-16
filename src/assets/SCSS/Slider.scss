@@ -1,0 +1,14 @@
+.slider{
+    width: 100%;
+    overflow: hidden;
+
+    .holder{
+        display: flex;
+    }
+
+    img{
+        padding: 10px;
+        border-radius: 20px;
+        width: 50%;
+    }
+}

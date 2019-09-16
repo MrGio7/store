@@ -13,7 +13,7 @@ const Footer = props => {
   const path = window.location.pathname;
   return (
     <div className="footer">
-      <div className="home">
+      <div>
         <Link to="/">
           <img
             src={HomePng}

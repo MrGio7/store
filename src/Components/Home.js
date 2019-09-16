@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Carousel from "./Custom/Carousel.js";
+import Slider from './Custom/Slider.js';
 
 const Home = () => {
   const [images, setImages] = useState([
@@ -26,7 +27,7 @@ const Home = () => {
       <h1>Categories</h1>
 
     <div className="categoryCarousel">
-      <Carousel images={catImg} />
+      <Slider images={catImg} />
     </div>
 
     </div>

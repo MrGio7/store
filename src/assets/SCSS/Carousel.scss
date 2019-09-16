@@ -69,6 +69,7 @@
 
   .holder {
     display: flex;
+    transition: 0.3s;
   }
 
   img {
@@ -78,17 +79,11 @@
   }
 }
 
-*,
-*::before,
-*::after {
-  animation-play-state: paused !important;
-}
-
 .dotsContainer {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .dot {
     cursor: pointer;
     height: 8px;
