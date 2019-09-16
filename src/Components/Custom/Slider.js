@@ -33,8 +33,8 @@ const Slider = props => {
       movex: global.touchmovex - global.touchstartx
     });
 
-    el.holder.style = `transform: translateX(${global.touchmovex -
-      global.touchstartx}px)`;
+    el.holder.style = `transform: translateX(${1.5*(global.touchmovex -
+      global.touchstartx)}px)`;
   };
 
   const tchEnd = ev => {
@@ -67,14 +67,6 @@ const Slider = props => {
           return (
             <img src={each} key={index} alt="slider" className="imgSlide" />
           );
-        })}
-      </div>
-
-      <div className="dotsContainer">
-        {props.images.map((each, index) => {
-          const cls = index === global.index ? "dot active" : "dot";
-
-          return <span className={cls} key={index} />;
         })}
       </div>
     </div>

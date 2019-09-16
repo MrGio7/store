@@ -4,11 +4,14 @@
 
     .holder{
         display: flex;
+        transition: 0.4s;
     }
 
     img{
         padding: 10px;
         border-radius: 20px;
         width: 50%;
+    
+        transition: 0.6ms;
     }
 }
