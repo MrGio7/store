@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "../../assets/SCSS/Slider.scss";
 
 const Slider = props => {
-  const [slideIndex, setSlideIndex] = useState(0);
 
   const [el, setEl] = useState({});
   const [global, setGlobal] = useState({

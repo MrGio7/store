@@ -11,6 +11,7 @@ import SearchPng from "../assets/IMG/Icons/Search.png";
 
 const Footer = props => {
   const path = window.location.pathname;
+
   return (
     <div className="footer">
       <div>
