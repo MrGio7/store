@@ -8,8 +8,8 @@ import { Footer, Home, Account } from "./Components";
 function App() {
   return (
     <div className="App">
-      <Route path='/' component={Home} />
-      <Route exact path="/account" component={Account} />
+      <Route path='/home' component={Home} />
+      <Route path="/account" component={Account} />
       <Footer />
     </div>
   );

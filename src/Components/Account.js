@@ -21,10 +21,10 @@ const Account = () => {
     <GoogleLogout
       clientId="43364718865-bgpkoue1nbjua4b9bo29n4timoh8v2cs.apps.googleusercontent.com"
       buttonText="Logout"
-      onLogoutSuccess={logout}
+    //   onLogoutSuccess={logout}
     />
     </div>
   );
 };
 
-export default Login;
+export default Account;

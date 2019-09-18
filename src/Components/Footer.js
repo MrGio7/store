@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "../assets/SCSS/Footer.scss";
@@ -10,26 +10,40 @@ import MePng from "../assets/IMG/Icons/Me.png";
 import SearchPng from "../assets/IMG/Icons/Search.png";
 
 const Footer = props => {
-  const path = window.location.pathname;
+  const path = window.location;
+
+  const choose = ev => {
+    const target = ev.currentTarget.hash;
+    
+    const link = document.getElementsByClassName(`${target}`)[0];
+
+    document.getElementsByClassName(`#/home`)[0].className=`#/home`;
+    document.getElementsByClassName(`#/categories`)[0].className=`#/categories`;
+    document.getElementsByClassName(`#/search`)[0].className=`#/search`;
+    document.getElementsByClassName(`#/account`)[0].className=`#/account`;
+    document.getElementsByClassName(`#/delivery`)[0].className=`#/delivery`;
+
+    link.className=`${target} selected`;
+  };
 
   return (
     <div className="footer">
-      <div>
-        <Link to="/">
+      <Link to="/home" onClick={choose}>
+        <div>
           <img
             src={HomePng}
             alt="Home"
-            className={path === "/" ? "selected" : null}
+            className="#/home"
           />
           <h2>Home</h2>
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <div className="categories">
         <img
           src={CategoryPng}
           alt="categories"
-          className={path === "/categories" ? "selected" : null}
+          className="#/categories"
         />
         <h2>Categ.</h2>
       </div>
@@ -38,7 +52,7 @@ const Footer = props => {
         <img
           src={DeliveryPng}
           alt="Delivery"
-          className={path === "/delivery" ? "selected" : null}
+          className="#/delivery"
         />
         <h2>deliv</h2>
       </div>
@@ -47,17 +61,17 @@ const Footer = props => {
         <img
           src={SearchPng}
           alt="Search"
-          className={path === "/search" ? "selected" : null}
+          className="#/search"
         />
         <h2>Search</h2>
       </div>
 
-      <Link to="/account">
+      <Link to="/account" onClick={choose}>
         <div className="me">
           <img
             src={MePng}
             alt="account"
-            className={path === "/account" ? "selected" : null}
+            className="#/account"
           />
           <h2>Me</h2>
         </div>
