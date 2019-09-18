@@ -1,8 +1,8 @@
 .footer {
   width: 100%;
   background: white;
-  position: fixed;
-  z-index: 1;
+  position: sticky;
+  z-index: 999;
   bottom: 0;
   display: flex;
   flex-direction: row;

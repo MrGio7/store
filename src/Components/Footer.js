@@ -52,14 +52,16 @@ const Footer = props => {
         <h2>Search</h2>
       </div>
 
-      <div className="me">
-        <img
-          src={MePng}
-          alt="account"
-          className={path === "/account" ? "selected" : null}
-        />
-        <h2>Me</h2>
-      </div>
+      <Link to="/account">
+        <div className="me">
+          <img
+            src={MePng}
+            alt="account"
+            className={path === "/account" ? "selected" : null}
+          />
+          <h2>Me</h2>
+        </div>
+      </Link>
     </div>
   );
 };
