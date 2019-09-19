@@ -33,7 +33,7 @@ const Footer = props => {
           <img
             src={HomePng}
             alt="Home"
-            className="#/home"
+            className="#/home selected"
           />
           <h2>Home</h2>
         </div>
