@@ -13,43 +13,27 @@ const Home = props => {
     "https://picsum.photos/id/758/600/300"
   ]);
 
-  const [catImg, setCatImg] = useState([
-    "https://picsum.photos/id/1/600/300",
-    "https://picsum.photos/id/2/600/300",
-    "https://picsum.photos/id/3/600/300", 
-    "https://picsum.photos/id/4/600/300"
-  ]);
-
-  const [recImg, setRecImg] = useState([
-    "https://picsum.photos/id/5/600/300",
-    "https://picsum.photos/id/6/600/300",
-    "https://picsum.photos/id/7/600/300", 
-    "https://picsum.photos/id/8/600/300"
-  ]);
-
-  console.log(props.categories)
-
   return (
     props.loading ? (<h1>loading</h1>) :( 
     <div className="home">
       <div className='headerCarousel'>
-        <Carousel images={props.categories} />
+        <Carousel images={images} />
       </div>
 
       <h1>Categories</h1>
 
     <div className="catSlider">
-      <Slider images={catImg} />
+      <Slider images={props.categories} />
     </div>
 
-    <h1>Recomended</h1>
-    <div className="recomended">
-      <Slider images={recImg} />
+    <h1>Restaurants</h1>
+    <div className="resSlider">
+      <Slider images={props.restaurants} />
     </div>
 
     <h1>Random</h1>
     <div className="recomended">
-      <Slider images={recImg} />
+      <Slider images={props.restaurants} />
     </div>
 
     </div>)
