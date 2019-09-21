@@ -39,6 +39,7 @@ const Footer = props => {
         </div>
       </Link>
 
+      <Link to="/categories" onClick={choose}>
       <div className="categories">
         <img
           src={CategoryPng}
@@ -47,6 +48,7 @@ const Footer = props => {
         />
         <h2>Categ.</h2>
       </div>
+      </Link>
 
       <div className="delivery">
         <img

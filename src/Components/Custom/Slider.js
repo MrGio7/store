@@ -9,7 +9,7 @@ const Slider = props => {
       <div className="holder">
         {props.images.map(each => {
           return (
-            <img src={each.img} key={each.id} alt="slider" className="imgSlide" />
+            <img src={each.img} key={each.id} alt="slider" id={each.id} className="imgSlide" />
           );
         })}
       </div>

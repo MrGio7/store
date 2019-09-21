@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./assets/SCSS/App.scss";
 
-import { Footer, Home, Account } from "./Components";
+import { Footer, Home, Account, Categories } from "./Components";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -30,22 +30,39 @@ function App() {
         console.log(err);
       });
 
-      setLoading(false);
+    setLoading(false);
   }, []);
 
   return (
     <div className="App">
       <Route exact path="/" component={Home} />
-      <Route exact path="/home" 
-      render={props => (
-        <Home 
-        {...props}
-        categories={categories}
-        restaurants={restaurants}
-        loading={loading}
-        />
-      )}
+
+      <Route
+        exact
+        path="/home"
+        render={props => (
+          <Home
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
       />
+
+      <Route
+        exact
+        path="/categories"
+        render={props => (
+          <Categories
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+      
       <Route exact path="/account" component={Account} />
       <Footer />
     </div>
