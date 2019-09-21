@@ -1,10 +1,11 @@
 .slider{
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
+    scroll
 
     .holder{
         display: flex;
-        transition: 0.4s;
+        transition: 0.15s;
     }
 
     img{
