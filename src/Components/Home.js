@@ -5,7 +5,7 @@ import Slider from './Custom/Slider.js';
 
 import '../assets/SCSS/Home.scss';
 
-const Home = () => {
+const Home = props => {
   const [images, setImages] = useState([
     "https://picsum.photos/id/757/600/300",
     "https://picsum.photos/id/756/600/300",
@@ -27,10 +27,13 @@ const Home = () => {
     "https://picsum.photos/id/8/600/300"
   ]);
 
+  console.log(props.categories)
+
   return (
+    props.loading ? (<h1>loading</h1>) :( 
     <div className="home">
       <div className='headerCarousel'>
-        <Carousel images={images} />
+        <Carousel images={props.categories} />
       </div>
 
       <h1>Categories</h1>
@@ -49,7 +52,7 @@ const Home = () => {
       <Slider images={recImg} />
     </div>
 
-    </div>
+    </div>)
   );
 };
 
