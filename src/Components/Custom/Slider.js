@@ -3,6 +3,7 @@ import React from "react";
 import "../../assets/SCSS/Slider.scss";
 
 const Slider = props => {
+  console.log(props.images)
 
   return (
     <div className="slider">

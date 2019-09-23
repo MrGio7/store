@@ -11,6 +11,8 @@ function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  console.log(categories)
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/categories")
@@ -34,36 +36,39 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Route exact path="/" component={Home} />
+        <div className="App">
 
-      <Route
-        exact
-        path="/home"
-        render={props => (
-          <Home
-            {...props}
-            categories={categories}
-            restaurants={restaurants}
-            loading={loading}
-          />
-        )}
-      />
+        <Route exact path="/" component={Home} />
 
-      <Route
-        exact
-        path="/categories"
-        render={props => (
-          <Categories
-            {...props}
-            categories={categories}
-            restaurants={restaurants}
-            loading={loading}
-          />
-        )}
-      />
-      
-      <Route exact path="/account" component={Account} />
+        <Route
+          exact
+          path="/home"
+          render={props => (
+            <Home
+              {...props}
+              categories={categories}
+              restaurants={restaurants}
+              loading={loading}
+            />
+          )}
+        />
+  
+        <Route
+          exact
+          path="/categories"
+          render={props => (
+            <Categories
+              {...props}
+              categories={categories}
+              restaurants={restaurants}
+              loading={loading}
+            />
+          )}
+        />
+        
+        <Route exact path="/account" component={Account} />
+
+        
       <Footer />
     </div>
   );
