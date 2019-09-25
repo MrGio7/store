@@ -3,17 +3,16 @@ import React from "react";
 import "../../assets/SCSS/Slider.scss";
 
 const Slider = props => {
-  console.log(props.images)
 
   return (
     <div className="slider">
-      <div className="holder">
+      {/* <div className="holder">
         {props.images.map(each => {
           return (
             <img src={each.img} key={each.id} alt="slider" id={each.id} className="imgSlide" />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

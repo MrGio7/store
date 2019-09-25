@@ -13,8 +13,9 @@ const Home = props => {
     "https://picsum.photos/id/758/600/300"
   ]);
 
+  console.log(props);
+
   return (
-    props.loading ? (<h1>loading</h1>) :( 
     <div className="home">
       <div className='headerCarousel'>
         <Carousel images={images} />
@@ -36,7 +37,7 @@ const Home = props => {
       <Slider images={props.restaurants} />
     </div>
 
-    </div>)
+    </div>
   );
 };
 

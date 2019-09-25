@@ -11,7 +11,6 @@ function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(categories)
 
   useEffect(() => {
     axios
@@ -32,10 +31,16 @@ function App() {
         console.log(err);
       });
 
-    setLoading(false);
   }, []);
 
+  useEffect(() => {
+    if(categories.length !== 0 & restaurants.length !== 0){
+      setLoading(false)
+    }
+  })
+
   return (
+    loading ? <h1>Loading</h1> : (
         <div className="App">
 
         <Route exact path="/" component={Home} />
@@ -70,7 +75,7 @@ function App() {
 
         
       <Footer />
-    </div>
+    </div>)
   );
 }
 
