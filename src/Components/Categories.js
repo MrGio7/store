@@ -5,7 +5,7 @@ const Categories = props => {
     return(
         props.loading ? <h1>loading</h1> : (
             <div className="categories">
-                {props.Categories.map(each => {
+                {props.categories.map(each => {
                     return(
                         <img src={each.img} alt="category" />
                     )

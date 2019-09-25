@@ -13,8 +13,6 @@ const Home = props => {
     "https://picsum.photos/id/758/600/300"
   ]);
 
-  console.log(props);
-
   return (
     <div className="home">
       <div className='headerCarousel'>

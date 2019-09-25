@@ -6,13 +6,13 @@ const Slider = props => {
 
   return (
     <div className="slider">
-      {/* <div className="holder">
+      <div className="holder">
         {props.images.map(each => {
           return (
             <img src={each.img} key={each.id} alt="slider" id={each.id} className="imgSlide" />
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 };
