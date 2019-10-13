@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Footer from './Footer.js';
 import Carousel from "./Custom/Carousel.js";
 import Slider from './Custom/Slider.js';
 
 import '../assets/SCSS/Home.scss';
 
 const Home = props => {
-  const [images, setImages] = useState([
+  const images = [
     "https://picsum.photos/id/757/600/300",
     "https://picsum.photos/id/756/600/300",
     "https://picsum.photos/id/755/600/300",
     "https://picsum.photos/id/758/600/300"
-  ]);
+  ];
 
   return (
     <div className="home">
@@ -35,7 +34,7 @@ const Home = props => {
     <div className="recomended">
       <Slider images={props.restaurants} />
     </div>
-    
+
     </div>
   );
 };

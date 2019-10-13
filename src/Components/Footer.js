@@ -10,7 +10,6 @@ import MePng from "../assets/IMG/Icons/Me.png";
 import SearchPng from "../assets/IMG/Icons/Search.png";
 
 const Footer = () => {
-console.log(window.location)
 
   return (
     <div className="footer">

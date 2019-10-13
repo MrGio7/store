@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./assets/SCSS/App.scss";
 
-import { Footer, Home, Account, Categories } from "./Components";
+import { Footer, Home, Account, Categories, CategoriesDetiled } from "./Components";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -35,7 +35,7 @@ function App() {
     if ((categories.length !== 0) & (restaurants.length !== 0)) {
       setLoading(false);
     }
-  });
+  }, [restaurants, categories]);
 
   return loading ? (
     <h1>Loading</h1>
@@ -72,6 +72,19 @@ function App() {
         path="/categories"
         render={props => (
           <Categories
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+
+      <Route
+        exact
+        path="/categories/:id"
+        render={props => (
+          <CategoriesDetiled 
             {...props}
             categories={categories}
             restaurants={restaurants}

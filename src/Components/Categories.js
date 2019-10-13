@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Footer from './Footer.js';
+import { Link } from "react-router-dom";
 
 import '../assets/SCSS/Categories.scss';
 
@@ -12,8 +11,10 @@ const Categories = props => {
                 {props.categories.map(each => {
                     return(
                         <div className="category" key = {each.id}>
-                        <img className="catImg" src={each.img} key={each.id} alt="category" />
-                        <h1>{each.category}</h1>
+                            <Link to={`/categories/${each.id}`}>
+                                <img className="catImg" src={each.img} key={each.id} alt="category" />
+                                <h1>{each.category}</h1>
+                            </Link>
                         </div>
                     )
                 })}
