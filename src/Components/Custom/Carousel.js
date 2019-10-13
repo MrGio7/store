@@ -62,6 +62,18 @@ const Carousel = props => {
       global.holderWidth}px);`;
   };
 
+  window.onload = function load() {
+    setEl({
+      ...el,
+    holder: document.getElementsByClassName("holder")[0]
+    })
+  }
+
+  window.onresize = function resize() {
+    el.holder.style = `transform: translateX(${-global.index *
+      window.innerWidth}px); transition: none;`;
+  }
+
   return (
     <div className="slideshow">
       <div
