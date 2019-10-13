@@ -3,16 +3,42 @@ import React from "react";
 import "../../assets/SCSS/Slider.scss";
 
 const Slider = props => {
-
   return (
     <div className="slider">
-      <div className="holder">
-        {props.images.map(each => {
+      {props.images.map(each => {
+
+        if (each.category) {
           return (
-            <img src={each.img} key={each.id} alt="slider" id={each.id} className="imgSlide" />
+            <div className="slide" key={each.id}>
+              <img
+                src={each.img}
+                alt="slider"
+                id={each.id}
+                className="imgSlide"
+              />
+              <h5>{each.category}</h5>
+            </div>
           );
-        })}
-      </div>
+
+        } else if (each.restaurant) {
+          return (
+            <div className="slide" key={each.id}>
+              <img
+                src={each.img}
+                alt="slider"
+                id={each.id}
+                className="imgSlide"
+              />
+              <h5>{each.restaurant}</h5>
+            </div>
+          );
+
+        } else {
+          return(
+            <h1>Undefined</h1>
+          )
+        }
+      })}
     </div>
   );
 };

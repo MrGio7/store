@@ -1,17 +1,30 @@
-.slider{
-    width: 100%;
-    overflow: auto;
+.slider {
+  display: flex;
+  flex-direction: row;
 
-    .holder{
-        display: flex;
-        transition: 0.15s;
+  width: 100%;
+  overflow: auto;
+  transition: 0.15s;
+
+  .slide {
+    width: 50%;
+    flex-shrink: 0;
+    position: relative;
+
+    img {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
     }
 
-    img{
-        padding: 10px;
-        border-radius: 20px;
-        width: 50%;
-    
-        transition: 0.6ms;
+    h5 {
+      position: absolute;
+      bottom: 0;
+      padding: 10px 10px 25px 16px;
+      border-top-right-radius: 10px;
+      font-size: 0.9em;
+      font-weight: bold;
+      background-color: white;
     }
+  }
 }
