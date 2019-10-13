@@ -58,6 +58,11 @@ body, #root, .App {
 }
 
 .App{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
   .header{
     width: 100%;
   }

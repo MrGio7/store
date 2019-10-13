@@ -35,8 +35,7 @@ const Home = props => {
     <div className="recomended">
       <Slider images={props.restaurants} />
     </div>
-
-    <Footer />
+    
     </div>
   );
 };

@@ -25,8 +25,6 @@ const Account = () => {
       buttonText="Logout"
     //   onLogoutSuccess={logout}
     />
-
-    <Footer />
     </div>
   );
 };

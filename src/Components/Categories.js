@@ -17,8 +17,6 @@ const Categories = props => {
                         </div>
                     )
                 })}
-
-                <Footer />
             </div>
         )
     )
