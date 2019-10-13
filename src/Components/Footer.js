@@ -9,42 +9,28 @@ import HomePng from "../assets/IMG/Icons/Home.png";
 import MePng from "../assets/IMG/Icons/Me.png";
 import SearchPng from "../assets/IMG/Icons/Search.png";
 
-const Footer = props => {
-  const path = window.location;
-
-  const choose = ev => {
-    const target = ev.currentTarget.hash;
-    
-    const link = document.getElementsByClassName(`${target}`)[0];
-
-    document.getElementsByClassName(`#/home`)[0].className=`#/home`;
-    document.getElementsByClassName(`#/categories`)[0].className=`#/categories`;
-    document.getElementsByClassName(`#/search`)[0].className=`#/search`;
-    document.getElementsByClassName(`#/account`)[0].className=`#/account`;
-    document.getElementsByClassName(`#/delivery`)[0].className=`#/delivery`;
-
-    link.className=`${target} selected`;
-  };
+const Footer = () => {
+console.log(window.location)
 
   return (
     <div className="footer">
-      <Link to="/home" onClick={choose}>
+      <Link to="/home">
         <div>
           <img
             src={HomePng}
             alt="Home"
-            className="#/home selected"
+            className={window.location.hash === "#/home" ? "selected" : null}
           />
           <h2>Home</h2>
         </div>
       </Link>
 
-      <Link to="/categories" onClick={choose}>
+      <Link to="/categories">
       <div className="categories">
         <img
           src={CategoryPng}
           alt="categories"
-          className="#/categories"
+          className={window.location.hash === "#/categories" ? "selected" : null}
         />
         <h2>Categ.</h2>
       </div>
@@ -54,7 +40,7 @@ const Footer = props => {
         <img
           src={DeliveryPng}
           alt="Delivery"
-          className="#/delivery"
+          className={window.location.hash === "#/delivery" ? "selected" : null}
         />
         <h2>deliv</h2>
       </div>
@@ -63,17 +49,17 @@ const Footer = props => {
         <img
           src={SearchPng}
           alt="Search"
-          className="#/search"
+          className={window.location.hash === "#/search" ? "selected" : null}
         />
         <h2>Search</h2>
       </div>
 
-      <Link to="/account" onClick={choose}>
+      <Link to="/account">
         <div className="me">
           <img
             src={MePng}
             alt="account"
-            className="#/account"
+            className={window.location.hash === "#/account" ? "selected" : null}
           />
           <h2>Me</h2>
         </div>

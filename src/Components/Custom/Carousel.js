@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import "../../assets/SCSS/Carousel.scss";
 
 const Carousel = props => {
-  const [slideIndex, setSlideIndex] = useState(0);
-
   const [el, setEl] = useState({});
   const [global, setGlobal] = useState({
     touchstartx: undefined,
@@ -12,22 +10,6 @@ const Carousel = props => {
     movex: undefined,
     index: 0
   });
-
-  // const plusSlide = () => {
-  //   if (slideIndex !== images.length - 1) {
-  //     setSlideIndex(slideIndex + 1);
-  //   } else {
-  //     setSlideIndex(0);
-  //   }
-  // };
-
-  // const minusSlide = () => {
-  //   if (slideIndex !== 0) {
-  //     setSlideIndex(slideIndex - 1);
-  //   } else {
-  //     setSlideIndex(images.length - 1);
-  //   }
-  // };
 
   const tchStart = ev => {
     setEl({
@@ -93,14 +75,6 @@ const Carousel = props => {
             <img src={each} key={index} alt="slideshow" className="imgSlide" />
           );
         })}
-        {/* <div className="btns">
-          <div className="prev" onClick={minusSlide}>
-            &#10094;
-          </div>
-          <div className="next" onClick={plusSlide}>
-            &#10095;
-          </div>
-        </div> */}
       </div>
 
       <div className="dotsContainer">

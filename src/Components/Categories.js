@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Footer from '../Footer.js';
+import Footer from './Footer.js';
 
-import '../../assets/SCSS/Categories.scss';
+import '../assets/SCSS/Categories.scss';
 
 const Categories = props => {
     
