@@ -1,24 +1,101 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
+import axios from "axios";
+
+import "./assets/SCSS/App.scss";
+
+import { Footer, Home, Account, Categories, CategoriesDetiled } from "./Components";
 
 function App() {
-  return (
+  const [categories, setCategories] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/categories")
+      .then(res => {
+        setCategories(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    axios
+      .get("http://localhost:5000/api/restaurants")
+      .then(res => {
+        setRestaurants(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    if ((categories.length !== 0) & (restaurants.length !== 0)) {
+      setLoading(false);
+    }
+  }, [restaurants, categories]);
+
+  return loading ? (
+    <h1>Loading</h1>
+  ) : (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route
+        exact
+        path="/"
+        render={props => (
+          <Home
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+
+      <Route
+        exact
+        path="/home"
+        render={props => (
+          <Home
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+
+      <Route
+        exact
+        path="/categories"
+        render={props => (
+          <Categories
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+
+      <Route
+        exact
+        path="/categories/:id"
+        render={props => (
+          <CategoriesDetiled 
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+
+      <Route exact path="/account" component={Account} />
+
+      <Route path="/" component={Footer} />
     </div>
   );
 }
