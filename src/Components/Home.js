@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Footer from './Footer.js';
 import Carousel from "./Custom/Carousel.js";
 import Slider from './Custom/Slider.js';
 
@@ -35,6 +36,7 @@ const Home = props => {
       <Slider images={props.restaurants} />
     </div>
 
+    <Footer />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Footer from '../Footer.js';
+
 import '../../assets/SCSS/Categories.scss';
 
 const Categories = props => {
@@ -15,6 +17,8 @@ const Categories = props => {
                         </div>
                     )
                 })}
+
+                <Footer />
             </div>
         )
     )

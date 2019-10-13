@@ -81,8 +81,6 @@ function App() {
       />
 
       <Route exact path="/account" component={Account} />
-
-      <Footer />
     </div>
   );
 }
