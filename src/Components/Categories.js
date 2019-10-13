@@ -12,7 +12,7 @@ const Categories = props => {
                 {props.categories.map(each => {
                     return(
                         <div className="category" key = {each.id}>
-                        <img src={each.img} key={each.id} alt="category" />
+                        <img className="catImg" src={each.img} key={each.id} alt="category" />
                         <h1>{each.category}</h1>
                         </div>
                     )
