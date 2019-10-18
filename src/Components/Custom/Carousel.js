@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../../assets/SCSS/Carousel.scss";
 
@@ -10,6 +10,12 @@ const Carousel = props => {
     movex: undefined,
     index: 0
   });
+
+  useEffect(() => {
+    setEl({
+      holder: document.getElementsByClassName("holder")[0]
+    })
+  }, []);
 
   const tchStart = ev => {
     setEl({
@@ -61,13 +67,6 @@ const Carousel = props => {
     el.holder.style = `transform: translateX(${-global.index *
       global.holderWidth}px);`;
   };
-
-  window.onload = function load() {
-    setEl({
-      ...el,
-    holder: document.getElementsByClassName("holder")[0]
-    })
-  }
 
   window.onresize = function resize() {
     el.holder.style = `transform: translateX(${-global.index *

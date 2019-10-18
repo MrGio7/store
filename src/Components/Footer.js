@@ -18,7 +18,7 @@ const Footer = () => {
           <img
             src={HomePng}
             alt="Home"
-            className={window.location.hash === "#/home" ? "selected" : null}
+            className={window.location.hash === "#/home" || window.location.hash === "#/" ? "selected" : null}
           />
           <h2>Home</h2>
         </div>
