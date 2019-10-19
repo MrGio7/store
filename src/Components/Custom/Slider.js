@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../../assets/SCSS/Slider.scss";
 
 const Slider = props => {
-  console.log(props.images)
 
   return (
     <div className="slider">

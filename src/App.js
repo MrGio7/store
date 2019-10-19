@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./assets/SCSS/App.scss";
 
-import { Footer, Home, Account, Categories, CategoriesDetiled } from "./Components";
+import { Footer, Home, Account, Categories, CategoriesDetiled, Restaurants } from "./Components";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -92,6 +92,20 @@ function App() {
           />
         )}
       />
+
+      <Route
+        exact
+        path="/restaurants/:id"
+        render={props => (
+          <Restaurants 
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            loading={loading}
+          />
+        )}
+      />
+
 
       <Route exact path="/account" component={Account} />
 

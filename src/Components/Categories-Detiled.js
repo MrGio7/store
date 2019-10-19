@@ -9,7 +9,7 @@ const CategoriesDetiled = props => {
         <div className="detiledCategories">
             {restaurants.map((each, index) => {
                 return (
-                    <div className="restaurant" key={index}>
+                    <div className="restaurants" key={index}>
                         <img src={each.img} alt={each.restaurants} />
                         <h3>{each.restaurants}</h3>
                     </div>
