@@ -1,5 +1,7 @@
 import React from "react";
 
+import '../assets/SCSS/Restaurants.scss';
+
 const Restaurants = props => {
     const id = props.match.params.id;
 
@@ -9,7 +11,6 @@ const Restaurants = props => {
         <div className="restaurant">
             <img src={restaurant.img} alt={restaurant.restaurant} />
             <h5>{restaurant.restaurant}</h5>
-
         </div>
     )
 }

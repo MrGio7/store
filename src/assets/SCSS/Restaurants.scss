@@ -1,0 +1,18 @@
+.restaurant{    
+    position: relative;
+
+    img{
+        width: 100%;
+    }
+
+    h5{
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        border-top-right-radius: 10px;
+        font-size: 1.8em;
+        font-weight: bold;
+        background-color: white;
+        color:black;
+    }
+}
