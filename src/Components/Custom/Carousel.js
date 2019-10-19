@@ -38,7 +38,7 @@ const Carousel = props => {
     });
 
     el.holder.style = `transform: translateX(${-global.index * global.holderWidth +
-      (global.touchmovex - global.touchstartx)}px)`;
+      (global.touchmovex - global.touchstartx)}px); transition: none;`;
   };
 
   const tchEnd = ev => {

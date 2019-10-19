@@ -5,7 +5,6 @@ const CategoriesDetiled = props => {
     const id = props.match.params.id;
 
     const restaurants = props.categories.filter(each => each.id.toString() === id)[0].restaurants;
-    console.log(restaurants)
 
     return (
         <div className="detiledCategories">
