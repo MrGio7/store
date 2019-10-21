@@ -9,6 +9,7 @@ import { Footer, Home, Account, Categories, CategoriesDetiled, Restaurants } fro
 function App() {
   const [categories, setCategories] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,13 +30,22 @@ function App() {
       .catch(err => {
         console.log(err);
       });
+
+      axios
+      .get("http://localhost:5000/api/products")
+      .then(res => {
+        setProducts(res.data)
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, []);
 
   useEffect(() => {
     if ((categories.length !== 0) & (restaurants.length !== 0)) {
       setLoading(false);
     }
-  }, [restaurants, categories]);
+  }, [restaurants, categories, products]);
 
   return loading ? (
     <h1>Loading</h1>
@@ -101,6 +111,7 @@ function App() {
             {...props}
             categories={categories}
             restaurants={restaurants}
+            products={products}
             loading={loading}
           />
         )}
