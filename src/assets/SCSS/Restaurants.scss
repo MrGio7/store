@@ -16,3 +16,29 @@
         color:black;
     }
 }
+
+.products{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 30px auto;
+
+    h2{
+        font-size: 1.8em;
+    }
+
+    .product{
+        display: flex;
+        justify-content: space-between;
+        margin:20px 0;
+
+        h3{
+            font-size: 1.2em;
+        }
+
+        img{
+            width: 30%;
+            border-radius: 10px;
+        }
+    }
+}

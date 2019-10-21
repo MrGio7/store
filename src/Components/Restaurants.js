@@ -31,7 +31,7 @@ const Restaurants = props => {
                                          <div className="description">
                                              <h3>{eachProd.name}</h3>
                                              <h4>{eachProd.description}</h4>
-                                             <h5>{eachProd.price}$</h5>
+                                             <h5>Price: {eachProd.price}$</h5>
                                          </div>
 
                                          <img src={eachProd.img} alt={eachProd.name} />
