@@ -51,9 +51,46 @@
             color:#2196f3;
         }
 
+        span{
+            display:none;
+        }
+
         img{
             width: 30%;
             border-radius: 10px;
+            align-self: center;
+            transition: 0.3s;
+        }
+    }
+
+    .expanded{
+        flex-direction: column-reverse;
+
+        img{
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .description{
+            margin-top:10px;
+        }
+
+        span{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .button{
+                background-color: #2196f3;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 1em;
+            }
         }
     }
 }
