@@ -12,7 +12,7 @@ const Account = () => {
            <input type="button" value="Add New Place" />
           </Link>
 
-
+          
             <input type="button" value="Edit Existing Place" />
 
         </form>
