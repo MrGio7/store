@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./assets/SCSS/App.scss";
 
-import { Footer, Home, Account, Categories, CategoriesDetiled, Restaurants } from "./Components";
+import { Footer, Home, Account, Categories, CategoriesDetiled, Restaurants, Add } from "./Components";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -108,6 +108,20 @@ function App() {
         path="/restaurants/:id"
         render={props => (
           <Restaurants 
+            {...props}
+            categories={categories}
+            restaurants={restaurants}
+            products={products}
+            loading={loading}
+          />
+        )}
+      />
+      
+      <Route
+        exact
+        path="/add"
+        render={props => (
+          <Add
             {...props}
             categories={categories}
             restaurants={restaurants}
