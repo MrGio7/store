@@ -4,6 +4,7 @@ import '../assets/SCSS/Add.scss';
 
 const Add = props => {
     const [btnName, setBtnName] = useState({name: "Select Category"});
+    const [placeDtl, setPlaceDtl] = useState({name:"", img:""});
 
     const selectCategory = ev => {
         ev.preventDefault();
@@ -21,15 +22,21 @@ const Add = props => {
         }
     }
 
+    const changeHandler = ev => {
+        ev.target.name === "name" ? setPlaceDtl({name: ev.target.value, img:placeDtl.img}) :
+        ev.target.name === "img" ? setPlaceDtl({name: placeDtl.name, img:ev.target.value}) :
+        console.log("error");
+    }
+
  
     return(
         <div className="add">
             <h1>Add New Place</h1>
 
             <form>
-                <input type="text" placeholder="name" />
+                <input type="text" placeholder="name" name="name" onChange={changeHandler} />
 
-                <input type="text" placeholder="image address" />
+                <input type="text" placeholder="image address" name="img" onChange={changeHandler} />
 
                 <input type="button" value={btnName.name} className="dropbtn" onClick={catBtn} />
                 <div className="myDropdown" style={{display: "none"}}>
