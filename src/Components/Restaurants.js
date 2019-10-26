@@ -41,7 +41,6 @@ const Restaurants = props => {
         }
     }
 
-    console.log(count)
     return (
         <div className="restaurant">
             <div className="restaurantHeader">
