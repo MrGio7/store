@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import '../assets/SCSS/Add.scss';
 
@@ -26,6 +27,13 @@ const Add = props => {
         ev.target.name === "name" ? setPlaceDtl({name: ev.target.value, img:placeDtl.img}) :
         ev.target.name === "img" ? setPlaceDtl({name: placeDtl.name, img:ev.target.value}) :
         console.log("error");
+    };
+
+    const submitHandler = ev => {
+        ev.preventDefault();
+
+        axios.post(`http://localhost:5000/api/restaurants`)
+
     }
 
  
